@@ -1,15 +1,19 @@
 function calc(a, operator, b) {
 
-    function isNotValidOperand (operand1, operand2) {
+    function operandIsNotValid (operand1, operand2) {
         return isNaN(operand1) 
         ||    '' === operand1
         
-        ||    isNaN (operand2) 
+        ||     isNaN(operand2) 
         ||    '' === operand2 
     }
     
-  if (isNotValidOperand (a, b)) {
+  if (operandIsNotValid (a, b)) {
         return 'ERROR'
+    }
+
+  if (operator === "/" && b === 0) {
+        return 'DIVIDE BY ZERO ERROR'
     }
 
     switch (operator) {
@@ -36,4 +40,4 @@ function calc(a, operator, b) {
 }   
 
 
-console.log( calc('s', '+', 8) )
+console.log( calc(10, '/', 0) )
